@@ -1,0 +1,27 @@
+//Same Complexity as cyclic sort
+
+class Solution {
+public:
+    vector<int> findErrorNums(vector<int>& nums) {
+        int n = nums.size();
+        int i =0;
+        vector<int>ans;
+        while(i<n){
+            int c=nums[i]-1;
+            if(nums[i]==nums[c]){
+                i++;
+            }
+            else{
+                swap(nums[i],nums[c]);
+            }
+        }
+        for(int i =0; i<n; i++){
+            if(nums[i]!=i+1){
+                ans.push_back(nums[i]);
+                ans.push_back(i+1);
+            }
+        }
+        return ans;
+        
+    }
+};
