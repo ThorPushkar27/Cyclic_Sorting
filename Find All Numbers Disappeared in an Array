@@ -1,0 +1,28 @@
+// Cyclic Sort apne aap duplicates handle kar leta hai.
+// Time Complexity= O(n)
+//Space Complexity= O(1)
+
+class Solution {
+public:
+    vector<int> findDisappearedNumbers(vector<int>& nums) {
+        int n = nums.size();
+        int i =0;
+        vector<int>ans;
+        while(i<n){
+            int correct_index=nums[i]-1;
+            if(nums[i]==nums[correct_index]){
+                i++;
+            }
+            else{
+                swap(nums[i],nums[correct_index]);
+            }
+        }
+        for(int i =0; i<n; i++){
+            if(nums[i]!=i+1){
+                ans.push_back(i+1);
+            }
+        }
+        return ans;
+        
+    }
+};
