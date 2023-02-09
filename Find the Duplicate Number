@@ -1,0 +1,31 @@
+//Time Complexity = O(N)
+//Space Complexity = O(1)
+
+// Cyclic sort easily handles duplicates.
+
+class Solution {
+public:
+    int findDuplicate(vector<int>& nums) {
+        int n = nums.size();
+        int i =0;
+        int ans;
+        while(i<n){
+            int c=nums[i]-1;
+            if(nums[i]==nums[c]){
+                i++;
+            }
+            else{
+                swap(nums[i],nums[c]);
+            }
+        }
+        for(int i =0; i<n; i++){
+            if(nums[i]!=i+1){
+                ans=nums[i];
+
+            }
+        }
+        return ans;
+
+        
+    }
+};
